@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Racer | Play on Any Site!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e74c3c;
+            --primary-hover: #c0392b;
+            --secondary: #3498db;
+            --secondary-hover: #2980b9;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --accent: #f1c40f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        /* Hero Section with Animated Road */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #111;
+            overflow: hidden;
+            color: white;
+            padding: 20px;
+        }
+
+        .road-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+            background-image: linear-gradient(0deg, transparent 50%, var(--accent) 50%);
+            background-size: 20px 150px;
+            background-position: center;
+            animation: drive 0.8s linear infinite;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        @keyframes drive {
+            0% { background-position: center 0; }
+            100% { background-position: center 150px; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(44, 62, 80, 0.85);
+            padding: 50px;
+            border-radius: 20px;
+            border: 4px solid var(--accent);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            max-width: 800px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+            text-shadow: 3px 3px 0px var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Fredoka One', cursive;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 0px rgba(0,0,0,0.2);
+            position: relative;
+            top: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:active {
+            top: 6px;
+            box-shadow: 0 0px 0px rgba(0,0,0,0.2);
+        }
+
+        .btn-edge {
+            background-color: var(--secondary);
+            color: white;
+            border: 3px solid #fff;
+        }
+
+        .btn-edge:hover {
+            background-color: var(--secondary-hover);
+            transform: scale(1.05);
+        }
+
+        .btn-crx {
+            background-color: var(--primary);
+            color: white;
+            border: 3px solid #fff;
+        }
+
+        .btn-crx:hover {
+            background-color: var(--primary-hover);
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-bottom: 5px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .action-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="road-bg"></div>
+        <div class="hero-content">
+            <h1>Webpage Racer</h1>
+            <p>Turn any website into your personal sandbox track and explore a massive open-world city.</p>
+            <div class="action-buttons">
+                <a href="https://microsoftedge.microsoft.com/addons/detail/YOUR_LINK_HERE" target="_blank" class="btn btn-edge">
+                    🎮 Get on Edge Store
+                </a>
+                
+                <a href="webpage-racer.crx" download class="btn btn-crx">
+                    🚀 Early Access (.crx)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <h2>What's under the hood?</h2>
+        <div class="feature-grid">
+            <div
